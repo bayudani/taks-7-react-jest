@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { BackgroundBeams } from "@/components/ui/background-beams"
+import { p1Image, p2Image, p3Image, p4Image } from '@/constant/projectImage'
 
 interface Project {
     title: string
@@ -15,43 +17,52 @@ interface Project {
 
 const projects: Project[] = [
     {
-        title: 'Project 1',
-        description: 'A brief description of your project goes here.',
-        technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-        image: '/placeholder.svg',
+        title: 'Website Bgym',
+        description: 'Gym member registration website and gym cashier management',
+        technologies: ['PHP', 'MySQL', 'Tailwind CSS', 'PHP Mailer', 'Midtrans'],
+        image: p1Image,
         link: '#',
         category: 'Web',
     },
     {
-        title: 'Project 2',
-        description: 'Another amazing project you worked on.',
-        technologies: ['Next.js', 'GraphQL', 'Styled Components'],
-        image: '/placeholder.svg',
+        title: 'Smart Lab',
+        description: 'Laboratory loan website',
+        technologies: ['PHP', 'MySQL', 'Tailwind CSS'],
+        image: p2Image,
+        link: '#',
+        category: 'Web',
+    },
+    {
+        title: 'Mobile Application gym',
+        description: 'Gym member registration app.',
+        technologies: ['Figma'],
+        image: p3Image,
+        link: '#',
+        category: 'Desain',
+    },
+    {
+        title: 'Moonlight Memories',
+        description: 'Wedding organizer app',
+        technologies: ['Kotlin', 'Laravel'],
+        image: p4Image,
         link: '#',
         category: 'Mobile',
     },
-    {
-        title: 'Project 3',
-        description: 'Your third impressive project.',
-        technologies: ['Vue.js', 'Node.js', 'MongoDB'],
-        image: '/placeholder.svg',
-        link: '#',
-        category: 'Web',
-    },
 ]
 
-const categories = ['All', 'Web', 'Mobile', 'Desktop']
+const categories = ['All', 'Web', 'Desain', 'Mobile']
 
 export function Projects() {
     const [filter, setFilter] = useState('All')
 
     const filteredProjects = projects.filter(project =>
-        filter === 'All' ? true : project.category === filter
+        filter === 'All' ? true : project.category.toLowerCase() === filter.toLowerCase()
     )
 
     return (
-        <section id="projects" className="py-20 bg-background">
-            <div className="container mx-auto px-4">
+        <section id="projects" className="py-20 bg-background relative z-10">
+            <BackgroundBeams className="absolute inset-0 z-0" />
+            <div className="container mx-auto px-4 relative z-10">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}

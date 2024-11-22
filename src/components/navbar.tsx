@@ -8,6 +8,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+// import { BackgroundBeams } from "@/components/ui/background-beams"
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -52,8 +53,11 @@ export function Navbar() {
             </Link>
           </NavigationMenuItem>
         ))}
+
       </NavigationMenuList>
     </NavigationMenu>
+    
   )
+  
 }
 

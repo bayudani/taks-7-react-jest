@@ -1,7 +1,9 @@
+"use client";
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from "@/components/ui/button"
 import { useNavigate } from 'react-router-dom';
+import { HeroHighlight, Highlight } from '@/components/ui/hero-highlight'
 
 const phrases = [
     "Software Engineer Student",
@@ -33,19 +35,42 @@ export function Hero() {
     }, [currentChar, currentIndex])
 
     return (
-        <section id="home" className="min-h-screen flex items-center bg-background">
-            <div className="container mx-auto px-4">
+        <section className="h-screen w-screen flex flex-col items-center justify-center bg-black relative overflow-hidden">
+            {/* Dot pattern background */}
+            <div className="absolute inset-0 w-full h-full bg-[radial-gradient(#ffffff33_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+            
+            <HeroHighlight className="w-full">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="text-center"
+                    className="text-center px-4 relative z-10"
                 >
-                    <h1 className="text-4xl sm:text-6xl font-bold text-foreground mb-4">
-                        Hi! I'm <span className="text-primary">Bayu Dani Kurniawan</span>
-                    </h1>
-                    <div className="text-xl sm:text-2xl text-muted-foreground mb-8 h-8">
-                        I'm a <span className="text-primary">{currentPhrase}</span>
+                    <motion.h1
+                        initial={{
+                            opacity: 0,
+                            y: 20,
+                        }}
+                        animate={{
+                            opacity: 1,
+                            y: [20, -5, 0],
+                        }}
+                        transition={{
+                            duration: 0.5,
+                            ease: [0.4, 0.0, 0.2, 1],
+                        }}
+                        className="text-5xl sm:text-7xl font-bold text-white mb-6"
+                    >
+                        Hi! I'm{" "}
+                        <Highlight className="bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">
+                            Bayu Dani Kurniawan
+                        </Highlight>
+                    </motion.h1>
+                    <div className="text-2xl sm:text-3xl text-white/80 mb-12 h-12">
+                        I'm a{" "}
+                        <Highlight className="bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">
+                            {currentPhrase}
+                        </Highlight>
                     </div>
                     <motion.div
                         whileHover={{ scale: 1.05 }}
@@ -53,14 +78,14 @@ export function Hero() {
                     >
                         <Button
                             size="lg"
-                            className="bg-primary text-primary-foreground hover:bg-primary/90"
+                            className="bg-white text-black hover:bg-white/90 text-lg px-8 py-6 rounded-full"
                             onClick={() => navigate('/about')}
                         >
                             Get In Touch
                         </Button>
                     </motion.div>
                 </motion.div>
-            </div>
+            </HeroHighlight>
         </section>
     )
 }
