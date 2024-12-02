@@ -5,3 +5,5 @@
 
 ## jest
 ![alt text]({D28E2FAF-29B5-440B-AB91-0BCFC802847F}.png)
+
+[![Docker CI/CD](https://github.com/bayudani/taks-7-react-jest/actions/workflows/main.yml/badge.svg)](https://github.com/bayudani/task-5-ci-cd/actions/workflows/main.yml)
