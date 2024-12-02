@@ -6,7 +6,7 @@ import { Home } from './pages/home'
 import { About } from './pages/about'
 import { ProjectsPage } from './pages/project'
 import { Contact } from './pages/contact'
-import { ParticlesBackground } from './components/particleBackground'
+// import { ParticlesBackground } from './components/particleBackground'
 import { Button } from "@/components/ui/button"
 import { ArrowUp } from 'lucide-react'
 
@@ -30,7 +30,7 @@ function App() {
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Router>
         <div className="min-h-screen bg-background text-foreground relative">
-          <ParticlesBackground />
+          {/* <ParticlesBackground /> */}
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />

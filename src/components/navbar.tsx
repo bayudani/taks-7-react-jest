@@ -1,14 +1,12 @@
-import { Link, useLocation } from "react-router-dom"
-
-import { cn } from "@/lib/utils"
+import { Link, useLocation } from "react-router-dom";
+import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
-// import { BackgroundBeams } from "@/components/ui/background-beams"
+} from "@/components/ui/navigation-menu";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -31,10 +29,10 @@ const components: { title: string; href: string; description: string }[] = [
     href: "/contact",
     description: "Get in touch with me.",
   },
-]
+];
 
 export function Navbar() {
-  const location = useLocation()
+  const location = useLocation();
 
   return (
     <NavigationMenu className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -42,7 +40,7 @@ export function Navbar() {
         {components.map((component) => (
           <NavigationMenuItem key={component.title}>
             <Link to={component.href}>
-              <NavigationMenuLink 
+              <NavigationMenuLink
                 className={cn(
                   navigationMenuTriggerStyle(),
                   location.pathname === component.href && "text-primary"
@@ -53,11 +51,9 @@ export function Navbar() {
             </Link>
           </NavigationMenuItem>
         ))}
-
       </NavigationMenuList>
     </NavigationMenu>
-    
-  )
-  
+  );
 }
 
+export default Navbar;
