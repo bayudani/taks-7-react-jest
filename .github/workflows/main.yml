@@ -46,9 +46,9 @@ jobs:
     #     username: ${{ secrets.DOCKER_USERNAME }}
     #     password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build Docker image
-      run: |
-        docker build -t yourdockerhubusername/yourimage:latest .
+    # - name: Build Docker image
+    #   run: |
+    #     docker build -t yourdockerhubusername/yourimage:latest .
 
     - name: Push Docker image
       run: |
