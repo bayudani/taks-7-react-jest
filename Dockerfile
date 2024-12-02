@@ -1,8 +1,8 @@
 # Menggunakan node image sebagai base
-FROM node:14
+FROM node:18
 
 # Mengatur working directory dalam container
-WORKDIR /usr/src/app
+WORKDIR /src/app
 
 # Menyalin package.json dan package-lock.json
 COPY package*.json ./
@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Menjalankan aplikasi
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
 
 # Menentukan port yang digunakan aplikasi
-EXPOSE 8080
+EXPOSE 5173

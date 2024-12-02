@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .  # Path ke direktori root proyek
+      dockerfile: Dockerfile  # Tentukan Dockerfile yang digunakan
+    ports:
+      - "5173:5173"  # Port untuk akses aplikasi
+    volumes:
+      - .:/src/app  # Pemetaan direktori root proyek ke dalam container
+    environment:
+      - NODE_ENV=development  # Tentukan environment development
+    working_dir: /src/app  # Tentukan direktori kerja dalam container
+    command: npm run dev  # Perintah untuk menjalankan aplikasi
