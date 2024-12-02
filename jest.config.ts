@@ -12,6 +12,7 @@ const config: Config.InitialOptions = {
     },
     transform: {
         '^.+\\.(ts|tsx)$': 'ts-jest',
+        // tsconfig: 'tsconfig.jest.json',
         // '^.+\\.(png|jpe?g|gif|webp|svg)$': 'file-loader',
     },
     globals: {

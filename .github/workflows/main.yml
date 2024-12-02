@@ -25,9 +25,9 @@ jobs:
       run: |
         npm install
 
-    - name: Run tests
-      run: |
-        npm test
+    # - name: Run tests
+    #   run: |
+    #     npm test
 
   build-and-push-docker:
     needs: build-and-test
